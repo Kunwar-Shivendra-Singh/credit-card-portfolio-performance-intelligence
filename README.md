@@ -106,7 +106,6 @@ The dashboard includes:
 
 The reporting-month slicer filters the KPI cards and alert table while the trend charts retain the full January–December 2025 series.
 
-*Add a screenshot of the completed dashboard here before publishing the repository.*
 
 ## Project Structure
 
