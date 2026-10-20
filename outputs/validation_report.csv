@@ -1,0 +1,19 @@
+layer,check_name,status,failed_rows,details
+Layer 1 - Data Quality,accounts: required columns,PASS,0,All required columns present.
+Layer 1 - Data Quality,monthly_performance: required columns,PASS,0,All required columns present.
+Layer 1 - Data Quality,transactions: required columns,PASS,0,All required columns present.
+Layer 1 - Data Quality,Unique account identifiers,PASS,0,Each account must appear once in accounts.csv.
+Layer 1 - Data Quality,Valid account credit limits,PASS,0,Credit limits must be present and greater than zero.
+Layer 1 - Data Quality,Unique account-month records,PASS,0,Each account must have at most one record per month.
+Layer 1 - Data Quality,Missing account or month identifiers,PASS,0,Account ID and reporting month must be populated.
+Layer 1 - Data Quality,Non-negative purchase spending,PASS,0,Purchase spending must be present and non-negative.
+Layer 1 - Data Quality,Non-negative outstanding balances,PASS,0,Outstanding balances must be present and non-negative.
+Layer 1 - Data Quality,Valid monthly credit limits,PASS,0,Monthly credit limits must be present and positive.
+Layer 1 - Data Quality,Outstanding balance does not exceed credit limit,PASS,0,Snapshot balances must not exceed the recorded credit limit.
+Layer 1 - Data Quality,Valid active-account flags,PASS,0,Active status must be Boolean or encoded as 0/1.
+Layer 1 - Data Quality,Valid transaction records,PASS,0,"Transaction amount must be non-negative, with account and month present."
+Layer 2 - Metric Reconciliation,Unique month-product KPI rows,PASS,0,Each product should have one KPI row per month.
+Layer 2 - Metric Reconciliation,Unique portfolio-month KPI rows,PASS,0,The portfolio should have one KPI row per month.
+Layer 2 - Metric Reconciliation,Product-to-portfolio spending reconciliation,PASS,0,Product spending totals agree with portfolio totals within ₹0.02.
+Layer 2 - Metric Reconciliation,Monthly spending versus purchase transaction total,PASS,0,Absolute difference: ₹0.0000. This is a consistency check because both datasets were generated from the same synthetic source.
+Layer 3 - Statistical Anomaly Detection,Unusual product spending movements,REVIEW,2,"2 unusual movement(s) flagged for review. Statistical anomalies are warnings, not proof of data errors."
